@@ -5,7 +5,7 @@ const FlavorOption = (props: any) => {
   let img = require(`assets/${props.img}`);
 
   return (
-    <FlavorCol>
+    <FlavorCol onClick={() => props.setFlavor(name)}>
       <FlavorH1>{name}</FlavorH1>
       <FlavorImg src={img} alt={name} />
     </FlavorCol>

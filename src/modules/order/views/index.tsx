@@ -13,6 +13,10 @@ import {
 
 import HeaderTitle from "components/headerTitle";
 
+interface IProps {
+  setOption: (value: number, options: object) => void;
+}
+
 interface IOptions {
   [key: string]: IApiResponse;
 }
@@ -24,7 +28,7 @@ interface IApiResponse {
   type: string;
 }
 
-const OrderYourPizza = () => {
+const OrderYourPizza = ({ setOption }: IProps) => {
   let [options, setOptions] = useState<IOptions>({});
 
   useEffect(() => {
@@ -36,8 +40,6 @@ const OrderYourPizza = () => {
     setOptions(response);
   };
 
-  function handleProfile() {}
-
   return (
     <>
       <Row className="p-0">
@@ -46,17 +48,17 @@ const OrderYourPizza = () => {
           <Body>
             <Row className="flex-column">
               <Col xs={6} sm={6} md={6} lg={6} xl={6}>
-                <BodyTitle onClick={() => handleProfile()}>
+                <BodyTitle onClick={() => setOption(2, {})}>
                   montar pedido
                 </BodyTitle>
               </Col>
               <BodyCol xs={6} sm={6} md={6} lg={6} xl={6}>
-                <BodyTitle onClick={() => handleProfile()}>
+                <BodyTitle onClick={() => setOption(2, options)}>
                   pedir pizza do dia
                 </BodyTitle>
                 {options &&
                   Object.keys(options).map((item, index) =>
-                    item !== "id" ? (
+                    item !== "id" && item !== "symbol" ? (
                       <Option key={index}>{options[item]}</Option>
                     ) : null
                   )}

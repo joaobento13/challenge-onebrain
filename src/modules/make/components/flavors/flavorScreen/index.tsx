@@ -3,10 +3,11 @@ import { Row } from "reactstrap";
 import FlavorOption from "../flavorOption";
 
 interface IProps {
+  setFlavor: (value: string) => void;
   flavorsProps: any[];
 }
 
-const FlavorScreen = ({ flavorsProps }: IProps) => {
+const FlavorScreen = ({ setFlavor, flavorsProps }: IProps) => {
   let [options, setOptions] = useState<any[]>();
 
   useEffect(() => {
@@ -18,7 +19,9 @@ const FlavorScreen = ({ flavorsProps }: IProps) => {
   return (
     <Row>
       {options && options.length
-        ? options.map((item, index) => <FlavorOption key={index} {...item} />)
+        ? options.map((item, index) => (
+            <FlavorOption setFlavor={setFlavor} key={index} {...item} />
+          ))
         : null}
     </Row>
   );

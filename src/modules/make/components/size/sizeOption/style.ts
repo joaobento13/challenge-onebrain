@@ -8,6 +8,7 @@ export const SizeRow = styled(Row)<{ size?: string }>`
   border-radius: ${(props) => props.size}px;
   align-items: center;
   margin-left: 20px;
+  cursor: pointer;
 `;
 
 export const SizeH1 = styled.h1`

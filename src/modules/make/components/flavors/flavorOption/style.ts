@@ -5,6 +5,7 @@ export const FlavorCol = styled(Col)`
   text-align: center;
   padding: 0;
   padding-left: 20px;
+  cursor: pointer;
 `;
 
 export const FlavorH1 = styled.h1`

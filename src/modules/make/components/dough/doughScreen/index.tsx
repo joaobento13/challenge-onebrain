@@ -5,10 +5,11 @@ import DoughOption from "../doughOption";
 import { DoughRow } from "./style";
 
 interface IProps {
+  setDough: (value: string) => void;
   doughsProps: any[];
 }
 
-const DoughScreen = ({ doughsProps }: IProps) => {
+const DoughScreen = ({ setDough, doughsProps }: IProps) => {
   let [options, setOptions] = useState<any[]>();
 
   useEffect(() => {
@@ -20,7 +21,9 @@ const DoughScreen = ({ doughsProps }: IProps) => {
   return (
     <DoughRow>
       {options && options.length
-        ? options.map((item, index) => <DoughOption key={index} {...item} />)
+        ? options.map((item, index) => (
+            <DoughOption setDough={setDough} key={index} {...item} />
+          ))
         : null}
     </DoughRow>
   );

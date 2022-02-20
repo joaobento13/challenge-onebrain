@@ -12,6 +12,7 @@ mock.onGet("/option-of-the-day").reply(200, {
     name: "Marguerita",
     size: "tamanho médio",
     type: "massa fina",
+    symbol: "M",
   },
 });
 

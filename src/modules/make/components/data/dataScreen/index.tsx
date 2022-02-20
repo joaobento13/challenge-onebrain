@@ -4,11 +4,16 @@ import FinalizeOrder from "../finalizeOrder";
 
 import { DataRow } from "./style";
 
-const DataScreen = () => {
+interface IProps {
+  setName: (value: string) => void;
+  setAddress: (value: string) => void;
+}
+
+const DataScreen = ({ setName, setAddress }: IProps) => {
   return (
     <DataRow>
-      <DataInput placeholder="Nome Completo" />
-      <DataInput placeholder="Endereço" />
+      <DataInput setInfo={setName} placeholder="Nome Completo" />
+      <DataInput setInfo={setAddress} placeholder="Endereço" />
       <DataPrice />
       <FinalizeOrder />
     </DataRow>

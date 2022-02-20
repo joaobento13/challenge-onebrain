@@ -5,10 +5,11 @@ import SizeOption from "../sizeOption";
 import { SizeRow } from "./style";
 
 interface IProps {
+  setSize: (value: string) => void;
   sizesProps: any[];
 }
 
-const SizeScreen = ({ sizesProps }: IProps) => {
+const SizeScreen = ({ setSize, sizesProps }: IProps) => {
   let [options, setOptions] = useState<any[]>();
 
   useEffect(() => {
@@ -20,7 +21,9 @@ const SizeScreen = ({ sizesProps }: IProps) => {
   return (
     <SizeRow>
       {options && options.length
-        ? options.map((item, index) => <SizeOption key={index} {...item} />)
+        ? options.map((item, index) => (
+            <SizeOption setSize={setSize} key={index} {...item} />
+          ))
         : null}
     </SizeRow>
   );

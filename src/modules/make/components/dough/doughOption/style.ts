@@ -5,6 +5,7 @@ export const DoughRow = styled(Row)`
   justify-content: space-around;
   align-items: center;
   margin-bottom: 20px;
+  cursor: pointer;
 `;
 
 export const DoughH1 = styled.h1<{ weight?: string }>`
