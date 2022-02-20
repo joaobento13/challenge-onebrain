@@ -9,3 +9,8 @@ export async function DoughsService(): Promise<any> {
   const response = await api.get(`/doughs`);
   return response.data.doughs;
 }
+
+export async function SizesService(): Promise<any> {
+  const response = await api.get(`/sizes`);
+  return response.data.sizes;
+}

@@ -68,6 +68,29 @@ mock.onGet("/doughs").reply(200, {
   ],
 });
 
+mock.onGet("/sizes").reply(200, {
+  sizes: [
+    {
+      id: 1,
+      name: "Pequeno",
+      symbol: "P",
+      size: "100",
+    },
+    {
+      id: 2,
+      name: "Média",
+      symbol: "M",
+      size: "150",
+    },
+    {
+      id: 3,
+      name: "Grande",
+      symbol: "G",
+      size: "250",
+    },
+  ],
+});
+
 const api = axios.create();
 
 export default api;

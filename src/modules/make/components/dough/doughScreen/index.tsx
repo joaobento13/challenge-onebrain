@@ -19,7 +19,7 @@ const DoughScreen = ({ doughsProps }: IProps) => {
 
   return (
     <DoughRow>
-      {options && doughsProps.length
+      {options && options.length
         ? options.map((item, index) => <DoughOption key={index} {...item} />)
         : null}
     </DoughRow>

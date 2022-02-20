@@ -15,6 +15,7 @@ export const Option = styled.h1<{ isActive?: boolean }>`
   font-size: 56px;
   color: ${(props) => (props.isActive ? "#393939" : "#a4a4a4")};
   margin-left: 20%;
+  cursor: pointer;
 `;
 
 export const OptionCol = styled(Col)`

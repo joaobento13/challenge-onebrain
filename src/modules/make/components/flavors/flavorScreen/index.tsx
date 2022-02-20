@@ -17,7 +17,7 @@ const FlavorScreen = ({ flavorsProps }: IProps) => {
 
   return (
     <Row>
-      {options && flavorsProps.length
+      {options && options.length
         ? options.map((item, index) => <FlavorOption key={index} {...item} />)
         : null}
     </Row>
