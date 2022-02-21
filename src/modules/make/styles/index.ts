@@ -15,7 +15,7 @@ export const Option = styled.h1<{ isActive?: boolean }>`
   font-size: 56px;
   color: ${(props) => (props.isActive ? "#393939" : "#a4a4a4")};
   cursor: pointer;
-  width: 35%;
+  width: 42%;
 `;
 
 export const Selected = styled.h1`

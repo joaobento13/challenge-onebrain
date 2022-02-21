@@ -4,7 +4,6 @@ import MockAdapter from "axios-mock-adapter";
 // This sets the mock adapter on the default instance
 var mock = new MockAdapter(axios);
 
-// Mock any GET request to /users
 // arguments for reply are (status, data, headers)
 mock.onGet("/option-of-the-day").reply(200, {
   option: {
@@ -87,10 +86,86 @@ mock.onGet("/sizes").reply(200, {
       id: 3,
       name: "Grande",
       symbol: "G",
-      size: "250",
+      size: "200",
     },
   ],
 });
+
+mock.onGet(/price?.*/).reply((config) => {
+  let newConfig = parseQueryString(config.url!);
+  let price = 0;
+
+  switch (newConfig.flavor) {
+    case "marguerita":
+      price = price + 10;
+      break;
+    case "portuguesa":
+      price = price + 15;
+      break;
+    case "cogumelos":
+      price = price + 20;
+      break;
+    case "festiva":
+      price = price + 25;
+      break;
+    case "rústica":
+      price = price + 30;
+      break;
+    default:
+      price = price + 10;
+  }
+
+  switch (newConfig.dough) {
+    case "grossa":
+      price = price + 15;
+      break;
+    case "média":
+      price = price + 10;
+      break;
+    case "fina":
+      price = price + 5;
+      break;
+    default:
+      price = price + 10;
+  }
+
+  switch (newConfig.size) {
+    case "P":
+      price = price + 5;
+      break;
+    case "M":
+      price = price + 10;
+      break;
+    case "G":
+      price = price + 15;
+      break;
+    default:
+      price = price + 10;
+  }
+
+  return [200, price];
+});
+
+function parseQueryString(url: string) {
+  const queryString = url.replace(/.*\?/, "");
+
+  if (queryString === url || !queryString) {
+    return null;
+  }
+
+  const urlParams = new URLSearchParams(queryString);
+  const result: any = {};
+
+  urlParams.forEach((val, key) => {
+    if (result.hasOwnProperty(key)) {
+      result[key] = [result[key], val];
+    } else {
+      result[key] = val;
+    }
+  });
+
+  return result;
+}
 
 const api = axios.create();
 

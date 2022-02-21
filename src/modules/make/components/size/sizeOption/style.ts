@@ -9,6 +9,11 @@ export const SizeRow = styled(Row)<{ size?: string }>`
   align-items: center;
   margin-left: 20px;
   cursor: pointer;
+  position: absolute;
+  top: ${(props) =>
+    props.size === "200" ? `190px` : props.size === "150" ? `15px` : `100px`};
+  left: ${(props) =>
+    props.size === "200" ? `60px` : props.size === "150" ? `120px` : ``};
 `;
 
 export const SizeH1 = styled.h1`
