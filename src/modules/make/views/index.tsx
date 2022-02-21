@@ -41,18 +41,42 @@ const MakeYourPizza = (props: any) => {
   }, []);
 
   const handleFlavors = async () => {
-    let response = await FlavorsService();
-    setFlavors(response);
+    try {
+      let response = await FlavorsService();
+      setFlavors(response);
+    } catch (error) {
+      setColorTitle("#980000");
+      setModalTitle("Erro inesperado");
+      setModalMessage(
+        "Estamos com problema nos nosso serviços. Tente novamente mais tarde."
+      );
+    }
   };
 
   const handleDoughs = async () => {
-    let response = await DoughsService();
-    setDoughs(response);
+    try {
+      let response = await DoughsService();
+      setDoughs(response);
+    } catch (error) {
+      setColorTitle("#980000");
+      setModalTitle("Erro inesperado");
+      setModalMessage(
+        "Estamos com problema nos nosso serviços. Tente novamente mais tarde."
+      );
+    }
   };
 
   const handleSizes = async () => {
-    let response = await SizesService();
-    setSizes(response);
+    try {
+      let response = await SizesService();
+      setSizes(response);
+    } catch (error) {
+      setColorTitle("#980000");
+      setModalTitle("Erro inesperado");
+      setModalMessage(
+        "Estamos com problema nos nosso serviços. Tente novamente mais tarde."
+      );
+    }
   };
 
   const handleFlavor = (value: string) => {

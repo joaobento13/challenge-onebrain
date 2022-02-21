@@ -5,7 +5,7 @@ export const FlavorCol = styled(Col)`
   text-align: center;
   padding: 0;
   padding-left: 20px;
-  cursor: pointer;
+  height: 230px;
 `;
 
 export const FlavorH1 = styled.h1`
@@ -20,4 +20,9 @@ export const FlavorImg = styled(Media)`
   margin: 0 auto;
   height: 180px;
   text-align: center;
+  cursor: pointer;
+
+  :hover {
+    height: 200px;
+  }
 `;

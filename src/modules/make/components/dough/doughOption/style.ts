@@ -6,6 +6,16 @@ export const DoughRow = styled(Row)`
   align-items: center;
   margin-bottom: 20px;
   cursor: pointer;
+
+  :hover {
+    div {
+      background-color: #842e2e !important;
+    }
+
+    h1 {
+      color: #842e2e !important;
+    }
+  }
 `;
 
 export const DoughH1 = styled.h1<{ weight?: string }>`

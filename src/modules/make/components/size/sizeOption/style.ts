@@ -14,10 +14,16 @@ export const SizeRow = styled(Row)<{ size?: string }>`
     props.size === "200" ? `190px` : props.size === "150" ? `15px` : `100px`};
   left: ${(props) =>
     props.size === "200" ? `60px` : props.size === "150" ? `120px` : ``};
+
+  :hover {
+    h1 {
+      font-size: 55px;
+    }
+  }
 `;
 
 export const SizeH1 = styled.h1`
-  font-size: 46px;
+  font-size: 40px;
   text-align: center;
   font-weight: bold;
 `;
