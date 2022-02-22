@@ -7,6 +7,9 @@ v16.14.0
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+After cloning the project, you need to run the command:
+
+### `npm install`
 
 ## Available Scripts
 
