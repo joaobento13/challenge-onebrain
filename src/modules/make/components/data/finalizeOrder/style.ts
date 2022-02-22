@@ -9,4 +9,14 @@ export const EndButton = styled(Button)`
   background-color: black;
   font-weight: bold;
   font-size: 20px;
+
+  :hover {
+    background-color: gray !important;
+  }
+
+  :focus {
+    box-shadow: none !important;
+    outline: none !important;
+    background-color: black;
+  }
 `;
